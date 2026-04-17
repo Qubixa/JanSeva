@@ -4,9 +4,11 @@ import 'package:provider/provider.dart';
 import 'core/constants/app_colors.dart';
 import 'core/constants/app_typography.dart';
 import 'core/services/api_service.dart';
+import 'core/services/home_content_service.dart';
 import 'core/providers/auth_provider.dart';
 import 'core/providers/complaint_provider.dart';
 import 'core/providers/services_provider.dart';
+import 'core/providers/matrimonial_provider.dart';
 import 'presentation/screens/splash_screen.dart';
 import 'presentation/screens/auth/login_screen.dart';
 import 'presentation/screens/auth/register_screen.dart';
@@ -18,6 +20,8 @@ import 'presentation/screens/services/transport_screen.dart';
 import 'presentation/screens/services/contacts_screen.dart';
 import 'presentation/screens/complaints/file_complaint_screen.dart';
 import 'presentation/screens/complaints/track_complaint_screen.dart';
+import 'presentation/screens/matrimonial/matrimonial_home_screen.dart';
+import 'presentation/screens/matrimonial/user_registration_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,9 +33,11 @@ void main() async {
     MultiProvider(
       providers: [
         Provider<ApiService>(create: (_) => apiService),
+        Provider<HomeContentService>(create: (_) => HomeContentService(apiService)),
         ChangeNotifierProvider(create: (_) => AuthProvider(apiService)..initialize()),
         ChangeNotifierProvider(create: (_) => ComplaintProvider(apiService)),
         ChangeNotifierProvider(create: (_) => ServicesProvider(apiService)),
+        ChangeNotifierProvider(create: (_) => MatrimonialProvider(apiService)),
       ],
       child: const NagarsevApp(),
     ),
@@ -109,6 +115,8 @@ class NagarsevApp extends StatelessWidget {
         '/contacts': (context) => const ContactsScreen(),
         '/file-complaint': (context) => const FileComplaintScreen(),
         '/track-complaint': (context) => const TrackComplaintScreen(),
+        '/matrimonial': (context) => const MatrimonialHomeScreen(),
+        '/matrimonial/user-register': (context) => const UserRegistrationScreen(),
       },
     );
   }
