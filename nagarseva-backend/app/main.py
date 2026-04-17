@@ -5,7 +5,7 @@ import os
 
 from app.core.config import settings
 from app.core.database import engine, Base
-from app.api import auth_router, complaints_router, services_router, admin_router
+from app.api import auth_router, complaints_router, services_router, admin_router, matrimonial_router, admin_extended_router
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
@@ -13,7 +13,7 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI(
     title=settings.APP_NAME,
     version=settings.APP_VERSION,
-    description="NagarSeva - Civic Services Mobile Application API",
+    description="JanSeva - Civic Services & Matrimonial Application API",
     docs_url="/docs",
     redoc_url="/redoc"
 )
@@ -36,6 +36,8 @@ app.include_router(auth_router, prefix="/api/v1")
 app.include_router(complaints_router, prefix="/api/v1")
 app.include_router(services_router, prefix="/api/v1")
 app.include_router(admin_router, prefix="/api/v1")
+app.include_router(matrimonial_router, prefix="/api/v1")
+app.include_router(admin_extended_router, prefix="/api/v1")
 
 
 @app.get("/")
