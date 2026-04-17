@@ -2,17 +2,7 @@
 
 A comprehensive civic services and matrimonial matching platform that connects citizens with municipal services, government schemes, emergency support, and matrimonial services. Built with FastAPI backend, Next.js admin panel, and Flutter mobile application.
 
-## Table of Contents
 
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [API Documentation](#api-documentation)
-- [Database Schema](#database-schema)
-- [Deployment](#deployment)
-- [Contributing](#contributing)
 
 ## Project Overview
 
@@ -208,6 +198,7 @@ janseva/
    python -m app.core.database
    # This creates all tables
    ```
+
 
 6. **Run development server**
    ```bash
