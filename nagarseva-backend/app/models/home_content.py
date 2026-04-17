@@ -12,6 +12,10 @@ class ContentType(str, enum.Enum):
     WIDGET = "WIDGET"
     LINK = "LINK"
     ALERT = "ALERT"
+    COMPLAINT_CATEGORY = "COMPLAINT_CATEGORY"  # For civic complaint categories
+    EMERGENCY_SERVICE = "EMERGENCY_SERVICE"    # For hospitals, fire brigade, police, etc.
+    SCHEME = "SCHEME"                          # For government schemes
+    QUICK_LINK = "QUICK_LINK"                  # For quick action links
 
 
 class HomeContent(Base):
