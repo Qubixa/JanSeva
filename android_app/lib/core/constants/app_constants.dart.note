@@ -1,0 +1,10 @@
+IMPORTANT: Before running the app, update the API_BASE_URL in lib/core/constants/app_constants.dart
+
+Change:
+const String API_BASE_URL = 'http://your-backend-url:8000/api';
+
+To your actual backend URL, for example:
+const String API_BASE_URL = 'http://192.168.1.100:8000/api';  // For local development
+const String API_BASE_URL = 'http://your-server.com:8000/api'; // For production
+
+The app will communicate with the backend at this URL for all API calls.
